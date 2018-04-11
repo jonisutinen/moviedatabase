@@ -3,7 +3,7 @@
 }
 
 .table {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .henkilot {
@@ -13,6 +13,11 @@
 .title {
   margin-top: 20px;
 }
-.a {
-  text-decoration: none;
+
+a {
+  color: #3b5998;
+}
+
+a:hover {
+    text-decoration: none;
 }

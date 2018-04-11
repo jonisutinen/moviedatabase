@@ -12,10 +12,10 @@ header('Content-Type: text/html; charset=utf-8');
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <title>Elokuvatietokanta</title>
+  <title>MovieDB</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3b5998">
     <div class="container">
       <a class="navbar-brand" href="index.php">MovieDB</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@ header('Content-Type: text/html; charset=utf-8');
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="index.php">Kaikki elokuvat<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="index.php">Kaikki elokuvat<span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="lisaauusi.php">Lisää uusi</a>
         </div>
       </div>

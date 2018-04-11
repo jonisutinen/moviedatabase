@@ -1,2 +1,1 @@
-#moviedatabase
-#trolololo
+Elokuvatietokanta parityö-kurssille

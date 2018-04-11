@@ -140,7 +140,4 @@ include('head.php');
     </div>
   </form>
 </div>
-
-<?php
-include('footer.php');
-?>
+<?php include('footer.php'); ?>

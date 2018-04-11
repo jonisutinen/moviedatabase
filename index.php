@@ -2,7 +2,7 @@
 include('head.php');
 ?>
 <div class="container">
-  <table class="table table-striped table-hover table-bordered table-responsive-sm">
+  <table class="table table-striped table-hover table-bordered table-responsive-sm etusivu">
     <thead class="thead-dark">
       <tr>
         <th>Elokuva</th>
@@ -58,7 +58,4 @@ include('head.php');
     </tbody>
   </table>
 </div>
-
-<?php
-  include('footer.php');
-?>
+<?php include('footer.php'); ?>

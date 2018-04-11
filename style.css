@@ -2,8 +2,8 @@
   margin-top: 30px;
 }
 
-.table {
-  margin-top: 40px;
+.table.etusivu {
+  margin: 40px 0 300px 0;
 }
 
 .henkilot {
@@ -20,4 +20,32 @@ a {
 
 a:hover {
     text-decoration: none;
+}
+
+form {
+  padding-bottom: 250px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+.footer {
+  color: white;
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.footerteksti {
+  margin-top: 20px;
+}
+
+.navbar-brand {
+  font-size: 35px;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.nav-item {
+  font-size: 17px;
 }

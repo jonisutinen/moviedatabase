@@ -1,9 +1,8 @@
 <?php
 include('head.php');
 ?>
-
 <div class="container">
-  <table class="table table-striped table-hover table-bordered">
+  <table class="table table-striped table-hover table-bordered table-responsive-sm">
     <thead class="thead-dark">
       <tr>
         <th>Elokuva</th>
@@ -16,16 +15,11 @@ include('head.php');
     </thead>
     <tbody>
       <?php
-
-      // Create connection
-      //$conn = new mysqli($servername, $username, $password, $dbname);
       include 'includes/dbconn.inc.php';
-      // Check connection
       if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error . "\n");
       }
 
-      // sql to create table
       $sql1 = "CREATE OR REPLACE VIEW elokuvaview AS
       SELECT Elokuva_id, Elokuva_nimi AS Elokuva, Genre.Genre_nimi AS Genre, Elokuva_julkaisuvuosi AS Julkaisuvuosi, Valmistusmaa.Valmistusmaa_nimi AS Valmistusmaa, IMDblinkki.IMDBlinkki_linkki AS IMDb
       FROM Elokuva
@@ -37,22 +31,15 @@ include('head.php');
 
       INNER JOIN IMDblinkki ON Elokuva.Elokuva_id = IMDblinkki.Elokuva_Elokuva_id
 
-      ORDER BY Elokuva_nimi
-
-
-      ;";
+      ORDER BY Elokuva_nimi;";
       $sql2 = "SELECT * FROM elokuvaview;";
 
       if($result = mysqli_query($conn, $sql1)){
-
-
       } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
       }
 
-
       if($result = mysqli_query($conn, $sql2)){
-
         while($row = mysqli_fetch_array($result)){
           echo "<tr>";
           echo "<td><a href='henkilot.php?id=" . $row['Elokuva_id'] . "'>" . $row['Elokuva'] . "</a></td>";
@@ -63,16 +50,13 @@ include('head.php');
           echo "<td><a href='includes/delete.php?id=" . $row['Elokuva_id'] . "'>Poista</a></td>";
           echo "</tr>";
         }
-
       } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
       }
-      // close connection
       mysqli_close($conn);
       ?>
     </tbody>
   </table>
-
 </div>
 
 <?php

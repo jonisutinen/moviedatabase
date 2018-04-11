@@ -11,9 +11,7 @@ include('head.php');
     $password = "MagicMike";
     $dbname = "moviedb";
 
-    // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // Check connection
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
@@ -39,14 +37,12 @@ include('head.php');
       <?php
       $id = $_GET['id'];
 
-
       include 'includes/dbconn.inc.php';
-      // Check connection
+
       if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
       }
 
-      // sql to delete a record
       $sql1 = "CREATE OR REPLACE VIEW henkiloview AS
       SELECT Elokuva_id, Henkilo.Henkilo_id AS Henkilo_id, Rooli.Rooli_id AS Rooli_id, Henkilo.Henkilo_nimi AS Nimi, Rooli.Rooli_nimi AS Rooli
       FROM Elokuva
@@ -58,7 +54,6 @@ include('head.php');
       ";
       $sql2 = "SELECT * FROM henkiloview WHERE Elokuva_id = $id";
 
-
       if (mysqli_query($conn, $sql1)) {
 
       } else {
@@ -66,7 +61,6 @@ include('head.php');
       }
 
       if($result = mysqli_query($conn, $sql2)){
-
         while($row = mysqli_fetch_array($result)){
           echo "<tr>";
           echo "<td>" . $row['Nimi'] . "</td>";
@@ -74,7 +68,6 @@ include('head.php');
           echo "<td><a href='includes/deleteperson.php?id=" . $row['Henkilo_id'] . "&elokuva=" . $row['Elokuva_id'] . "&rooli=" . $row['Rooli_id'] . "'>Poista</a></td>";
           echo "</tr>";
         }
-
       } else{
         echo "ERROR: Could not able to execute $sql2. " . mysqli_error($conn);
       }
@@ -85,7 +78,6 @@ include('head.php');
   </table>
   <h3 class="henkilot">Lisää uusi henkilö:</h3>
   <form action="includes/insertperson.php" method="post">
-
     <div class="form-group row">
       <label for="nimi" class="col-sm-2 col-form-label">Nimi</label>
       <div class="col-sm-10">
@@ -96,11 +88,8 @@ include('head.php');
       <label class="col-sm-2 col-form-label">Rooli</label>
       <div class="col-sm-10">
         <?php
-        /* Attempt MySQL server connection. Assuming you are running MySQL
-        server with default setting (user 'root' with no password) */
         include 'includes/dbconn.inc.php';
 
-        // Check connection
         if($conn === false){
           die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -114,7 +103,6 @@ include('head.php');
         }
         echo "</select>";
 
-        // close connection
         mysqli_close($conn);
         ?>
       </div>
@@ -124,11 +112,9 @@ include('head.php');
       <div class="col-sm-10">
         <?php
         $id = $_GET['id'];
-        /* Attempt MySQL server connection. Assuming you are running MySQL
-        server with default setting (user 'root' with no password) */
+
         include 'includes/dbconn.inc.php';
 
-        // Check connection
         if($conn === false){
           die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -142,13 +128,10 @@ include('head.php');
         }
         echo "</select>";
 
-        // close connection
         mysqli_close($conn);
         ?>
       </div>
-
     </div>
-
     <div class="form-group row">
       <div class="col-sm-2"></div>
       <div class="col-sm-10">
@@ -158,6 +141,6 @@ include('head.php');
   </form>
 </div>
 
-<?php 
-  include('footer.php');
+<?php
+include('footer.php');
 ?>

@@ -148,11 +148,11 @@ include('head.php');
           die("ERROR: Could not connect. " . mysqli_connect_error());
         }
 
-        $sql = "SELECT Genre_id, Genre_nimi FROM Genre";
+        $sql = "SELECT Genre_id, Genre_nimi FROM Genre ORDER BY Genre_nimi";
         $result = mysqli_query($conn, $sql);
 
         echo "<select name='Genre_genre_id' required>";
-        echo "<option value=''>Valitse</option>";
+        echo "<option value='default'>Valitse</option>";
         while ($row = mysqli_fetch_array($result)) {
           echo "<option value='" . $row['Genre_id'] ."'>" . $row['Genre_nimi'] ."</option>";
         }
@@ -176,11 +176,11 @@ include('head.php');
           die("ERROR: Could not connect. " . mysqli_connect_error());
         }
 
-        $sql = "SELECT Valmistusmaa_id, Valmistusmaa_nimi FROM Valmistusmaa";
+        $sql = "SELECT Valmistusmaa_id, Valmistusmaa_nimi FROM Valmistusmaa ORDER BY Valmistusmaa_nimi";
         $result = mysqli_query($conn, $sql);
 
         echo "<select name='Valmistusmaa_valmistusmaa_id' required>";
-        echo "<option value=''>Valitse</option>";
+        echo "<option value='default'>Valitse</option>";
         while ($row = mysqli_fetch_array($result)) {
           echo "<option value='" . $row['Valmistusmaa_id'] ."'>" . $row['Valmistusmaa_nimi'] ."</option>";
         }
